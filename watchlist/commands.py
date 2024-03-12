@@ -3,19 +3,21 @@ import click
 from watchlist import app, db
 from watchlist.models import User
 
+
 @app.cli.command()
 @click.option('--drop', is_flag=True, help='Create after drop.')
-def initdb(drop): # 初始化数据库
+def initdb(drop):  # 初始化数据库
     if drop:
         db.drop_all()
         click.echo('删除数据库')
     db.create_all()
     click.echo('建立数据库')
 
+
 @app.cli.command()
 @click.option('--username', prompt=True, help='用户名，可以理解为账号，不是昵称')
 @click.option('--password', prompt=True, hide_input=True, confirmation_prompt=True, help='密码')
-def adduser(username, password): # 创建用户
+def adduser(username, password):  # 创建用户
     db.create_all()
 
     user = User.query.first()
