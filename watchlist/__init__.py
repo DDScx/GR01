@@ -4,7 +4,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'  # 密钥（测试）
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:20021126cX_@localhost/gr?charset=utf8mb4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://gradmin:grpassword@localhost/grdb?charset=utf8mb4'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的监控
 
 # 实例化
